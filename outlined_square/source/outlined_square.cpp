@@ -45,7 +45,7 @@ void init(GLuint &glShaderProgram, GLuint &triVao, GLuint &sqVao){
   size_t square_bytes = 4*sizeof(vec2);
 
   
-  vec3 *square_colors = new vec3[3];
+  vec3 *square_colors = new vec3[4];
   square_colors[0] = vec3( 1.0, 0.0, 0.0);
   square_colors[1] = vec3( 1.0, 0.0, 0.0);
   square_colors[2] = vec3( 1.0, 0.0, 0.0);
@@ -110,7 +110,7 @@ void init(GLuint &glShaderProgram, GLuint &triVao, GLuint &sqVao){
   glBindBuffer( GL_ARRAY_BUFFER, tri_buffer );
   
   //Create GPU buffer to hold vertices and color
-  glBufferData( GL_ARRAY_BUFFER, triangle_bytes*triangle_color_bytes, NULL, GL_STATIC_DRAW );
+  glBufferData( GL_ARRAY_BUFFER, triangle_bytes+triangle_color_bytes, NULL, GL_STATIC_DRAW );
   //First part of array holds vertices
   glBufferSubData( GL_ARRAY_BUFFER, 0, triangle_bytes, triangle );
   //Second part of array hold colors (offset by sizeof(triangle))
@@ -136,7 +136,7 @@ void init(GLuint &glShaderProgram, GLuint &triVao, GLuint &sqVao){
   glBindBuffer( GL_ARRAY_BUFFER, sq_buffer );
   
   //Create GPU buffer to hold vertices and color
-  glBufferData( GL_ARRAY_BUFFER, square_bytes*square_color_bytes, NULL, GL_STATIC_DRAW );
+  glBufferData( GL_ARRAY_BUFFER, square_bytes+square_color_bytes, NULL, GL_STATIC_DRAW );
   //First part of array holds vertices
   glBufferSubData( GL_ARRAY_BUFFER, 0, square_bytes, square );
   //Second part of array hold colors (offset by sizeof(triangle))
