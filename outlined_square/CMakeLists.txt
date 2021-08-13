@@ -29,6 +29,8 @@ add_executable(outlined_square WIN32 MACOSX_BUNDLE
 	shaders/vshader.glsl
 	source/common/Angel.h
 	source/common/mat.h
+    source/common/u8names.cpp
+    source/common/u8names.h
     source/common/vec.h)
 
 #Windows cleanup
